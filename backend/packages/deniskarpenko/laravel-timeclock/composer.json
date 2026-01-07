@@ -1,0 +1,15 @@
+{
+    "name": "deniskarpenko/laravel-timeclock",
+    "autoload": {
+        "psr-4": {
+            "Deniskarpenko\\Timeclock\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Deniskarpenko\\Timeclock\\TimeclockServiceProvider"
+            ]
+        }
+    }
+}
