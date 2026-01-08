@@ -1,15 +1,43 @@
 {
     "name": "deniskarpenko/laravel-timeclock",
+    "description": "Time tracking package with Clock In/Out functionality",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["laravel", "time-tracking", "clock-in", "attendance"],
+    "authors": [
+        {
+            "name": "Denis Karpenko",
+            "email": "new.den84@gmail.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Deniskarpenko\\Timeclock\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Deniskarpenko\\TimeTracking\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.4",
+        "illuminate/support": "^10.0|^11.0",
+        "illuminate/database": "^10.0|^11.0",
+        "illuminate/http": "^10.0|^11.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.0|^9.0",
+        "phpunit/phpunit": "^10.0"
     },
     "extra": {
         "laravel": {
             "providers": [
                 "Deniskarpenko\\Timeclock\\TimeclockServiceProvider"
             ]
+        },
+        "aliases": {
+            "TimeClock": "Deniskarpenko\\TimeTracking\\Facades\\TimeTracking"
         }
     }
 }
