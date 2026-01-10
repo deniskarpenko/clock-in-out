@@ -8,13 +8,10 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('punches', function (Blueprint $table): void {
-            $table > id('punch_id');
+            $table->id('punch_id');
             $table->enum('punch_type', PunchType::cases());
             $table->unsignedInteger('user_id');
             $table->foreignId('user_id')->constrained('users', 'user_id')
@@ -24,9 +21,6 @@ return new class extends Migration {
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('punches');
