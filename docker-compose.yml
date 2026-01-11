@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # PHP-FPM Service
   php:
@@ -20,7 +18,6 @@ services:
       - mysql
       - redis
 
-  # Nginx Service
   nginx:
     image: nginx:alpine
     container_name: app_nginx
@@ -38,7 +35,6 @@ services:
     depends_on:
       - php
 
-  # MySQL Service
   mysql:
     image: mysql:8.0
     container_name: app_mysql
@@ -52,8 +48,17 @@ services:
       - ./envs/mysql.env
     networks:
       - app_network
+  mysql_test:
+    image: mysql:8.0
+    container_name: app_mysql_test
+    restart: unless-stopped
+    ports:
+      - "3307:3306"
+    env_file:
+      - ./envs/mysql.env
+    networks:
+      - app_network
 
-  # Redis Service
   redis:
     image: redis:7-alpine
     container_name: app_redis
@@ -66,7 +71,6 @@ services:
     networks:
       - app_network
 
-  # Vue.js Development Service
   vue:
     build:
       context: .
