@@ -31,3 +31,7 @@ Homestead.json
 .phpactor.json
 auth.json
 .idea
+
+frontend/.gitignore
+frontend/.vscode
+frontend/node_modules

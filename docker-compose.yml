@@ -82,11 +82,10 @@ services:
     volumes:
       - ./frontend:/app
       - /app/node_modules
-    env_file:
-      - ./envs/vue.env
+    environment:
+      - NODE_ENV=development
     networks:
       - app_network
-    command: npm run dev
 
 networks:
   app_network:
